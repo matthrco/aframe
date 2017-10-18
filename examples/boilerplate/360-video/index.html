@@ -8,30 +8,17 @@
   </head>
   <body>
     <a-scene>
-    <a-assets>
-      <video id="vid" crossorigin="anonymous" loop src="./city.mp4">
-      </video>
-    </a-assets>
-      <a-videosphere src="#video"></a-videosphere>
-</a-scene>
-
-<script type="text/javascript">
-    var scene = document.querySelector("a-scene");
-    var vid = document.getElementById("video");
-
-    if (scene.hasLoaded) {
-      run();
-    } else {
-      scene.addEventListener("loaded", run);
-    }
-
-    function run () {
-        scene.querySelector(".a-enter-vr-button").addEventListener("click", function(e){
-            console.log("VR Mode entered");
-            this.style.display = "none";
-            vid.play();
-        }, false);
-    }
-</script>
+      <a-assets>
+    <video id="vid" crossorigin="anonymous" loop src="./city.mp4">
+    </video>
+      </a-assets>
+      <a-videosphere id="vid" src="#video" rotation="0 180 0"></a-videosphere> 
+    </a-scene>
+    <script>
+    window.addEventListener('click', function () {
+      var v = document.querySelector('#vid');
+      v.play();
+    });
+    </script>
   </body>
 </html>
