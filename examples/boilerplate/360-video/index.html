@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>360 Video</title>
-    <meta name="description" content="360 Video — A-Frame">
-    <script src="../../../dist/aframe-master.js"></script>
-  </head>
+    <title>JavaScript - A-Frame School</title>
+    <meta name="description" content="JavaScript - A-Frame School">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    </head>
   <body>
     <a-scene>
       <a-assets>
-    <video id="video" crossorigin="anonymous" loop src="./city.mp4">
+    <video webkit-playsinline id="video" crossorigin="anonymous" loop src="https://cdn.glitch.com/6bc44ed9-793d-459d-9a74-469a6d70b58b%2Fcity.mp4?1508345611789">
     </video>
       </a-assets>
       <a-videosphere id="vid" src="#video" rotation="0 180 0"></a-videosphere> 
