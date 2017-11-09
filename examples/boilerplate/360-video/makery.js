@@ -99,9 +99,9 @@ AFRAME.registerComponent('portal', {
         // Set image.
         data.target.setAttribute('material', 'src', data.src);
         data.target.setAttribute('position', data.position);
-        portals[activePortal].classList.add("link");
+        //portals[activePortal].classList.add("link");
         portals[activePortal].setAttribute('visible', true);
-        portals[(activePortal + (portals.length/2)) % portals.length].classList.add("link");
+        //portals[(activePortal + (portals.length/2)) % portals.length].classList.add("link");
         portals[(activePortal + (portals.length/2)) % portals.length].setAttribute('visible', true);
         activePortal = (data.src.substring(7)) - 1;
         var secondCameraEl = document.querySelector("#camera");
