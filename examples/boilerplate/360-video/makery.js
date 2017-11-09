@@ -100,7 +100,8 @@ AFRAME.registerComponent('portal', {
         // Set image.
         data.target.setAttribute('material', 'src: ');
         document.querySelector(currentPortalName).pause();
-        document.querySelector(data.src).play();
+        var newVid = document.querySelector(data.src);
+        newVid.play();
         currentPortalName = data.src;
         data.target.setAttribute('material', 'src: '+data.src);
         data.target.setAttribute('material', 'src', data.src);
