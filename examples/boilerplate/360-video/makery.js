@@ -96,7 +96,7 @@ AFRAME.registerComponent('portal', {
         els[i].emit('set-image-fade');
       }**/
       // Wait for fade to complete.
-      setTimeout(function () {
+      //setTimeout(function () {
         // Set image.
         data.target.setAttribute('material', 'src: ');
         document.querySelector(currentPortalName).pause();
@@ -113,7 +113,7 @@ AFRAME.registerComponent('portal', {
         secondCameraEl.setAttribute('position', data.position);
         secondCameraEl.setAttribute('rotation', data.rotation);
         goToPortal(activePortal);
-      }, 300);
+      //}, 300);
     });
   }
 });
