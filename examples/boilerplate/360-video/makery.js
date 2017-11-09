@@ -114,7 +114,7 @@ AFRAME.registerComponent('portal', {
     
     /**
    * Setup fade-in + fade-out.
-   */
+   
   setupFadeAnimation: function () {
     var data = this.data;
     var targetEl = this.data.target;
@@ -132,7 +132,7 @@ AFRAME.registerComponent('portal', {
       from: '#FFF',
       to: '#000'
     });
-    /**var sceneEl = document.querySelector('a-scene');
+    var sceneEl = document.querySelector('a-scene');
     var els = sceneEl.querySelectorAll('[portal]');
     for (var i = 0; i < els.length; i++) {
       els[i].setAttribute('animation__fade', {
@@ -143,8 +143,8 @@ AFRAME.registerComponent('portal', {
         from: '#FFF',
         to: '#000'
       });
-    }**/
-  }
+    }
+  }**/
 });
 
 function goToPortal(portal){
