@@ -113,7 +113,7 @@ AFRAME.registerComponent('portal', {
   },
     
     /**
-   * Setup fade-in + fade-out.
+    Setup fade-in + fade-out.
    
   setupFadeAnimation: function () {
     var data = this.data;
