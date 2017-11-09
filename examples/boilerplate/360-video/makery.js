@@ -1,6 +1,7 @@
 /* global AFRAME */
 
 var portals = [];
+var currentPortalName = "#makery1";
 var camera = null;
 var clicked;
 var activePortal = 0;
@@ -97,12 +98,15 @@ AFRAME.registerComponent('portal', {
       // Wait for fade to complete.
       setTimeout(function () {
         // Set image.
+        data.target.setAttribute('material', 'src: ');
+        document.querySelector(currentPortalName).pause();
+        document.querySelector(data.src).play();
+        currentPortalName = data.src;
+        data.target.setAttribute('material', 'src: '+data.src);
         data.target.setAttribute('material', 'src', data.src);
         data.target.setAttribute('position', data.position);
         //portals[activePortal].classList.add("link");
         portals[activePortal].setAttribute('visible', true);
-        //portals[(activePortal + (portals.length/2)) % portals.length].classList.add("link");
-        portals[(activePortal + (portals.length/2)) % portals.length].setAttribute('visible', true);
         activePortal = (data.src.substring(7)) - 1;
         var secondCameraEl = document.querySelector("#camera");
         secondCameraEl.setAttribute('position', data.position);
@@ -115,9 +119,7 @@ AFRAME.registerComponent('portal', {
 
 function goToPortal(portal){
   var sceneEl = document.querySelector('a-scene');
-  portals[portal].classList.remove("link");
+  //portals[portal].classList.remove("link");
   portals[portal].setAttribute('visible', false);
-  portals[(portal + (portals.length/2)) % portals.length].classList.remove("link");
-  portals[(portal + (portals.length/2)) % portals.length].setAttribute('visible', false);
   sceneEl.querySelector('[raycaster]').components.raycaster.refreshObjects();
 }
