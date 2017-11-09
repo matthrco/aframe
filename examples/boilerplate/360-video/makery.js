@@ -41,7 +41,7 @@ AFRAME.registerComponent('portal', {
       transparent: true,
       depthTest: false
     });
-    this.setupFadeAnimation();
+    //this.setupFadeAnimation();
     element.addEventListener('mousedown', function (event) {
       element.setAttribute('material', {
         shader: 'flat', 
@@ -110,41 +110,7 @@ AFRAME.registerComponent('portal', {
         goToPortal(activePortal);
       }, 300);
     });
-  },
-    
-    /**
-    Setup fade-in + fade-out.
-   
-  setupFadeAnimation: function () {
-    var data = this.data;
-    var targetEl = this.data.target;
-
-    // Only set up once.
-    if (targetEl.dataset.setImageFadeSetup) { return; }
-    targetEl.dataset.setImageFadeSetup = true;
-
-    // Create animation.
-    targetEl.setAttribute('animation__fade', {
-      property: 'material.color',
-      startEvents: 'set-image-fade',
-      dir: 'alternate',
-      dur: 300,
-      from: '#FFF',
-      to: '#000'
-    });
-    var sceneEl = document.querySelector('a-scene');
-    var els = sceneEl.querySelectorAll('[portal]');
-    for (var i = 0; i < els.length; i++) {
-      els[i].setAttribute('animation__fade', {
-        property: 'material.color',
-        startEvents: 'set-image-fade',
-        dir: 'alternate',
-        dur: 300,
-        from: '#FFF',
-        to: '#000'
-      });
-    }
-  }**/
+  }
 });
 
 function goToPortal(portal){
