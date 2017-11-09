@@ -88,7 +88,7 @@ AFRAME.registerComponent('portal', {
     });
     element.addEventListener('click', function (event) {
       // Fade out image.
-      data.target.emit('set-image-fade');
+      //data.target.emit('set-image-fade');
       var sceneEl = document.querySelector('a-scene');
       /**var els = sceneEl.querySelectorAll('[portal]');
       for (var i = 0; i < els.length; i++) {
