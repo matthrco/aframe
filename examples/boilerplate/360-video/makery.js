@@ -90,7 +90,6 @@ AFRAME.registerComponent('portal', {
     });
     element.addEventListener('click', function (event) {
       // Fade out image.
-      console.log(event);
       var newVid = document.querySelector(data.src);
       newVid.play();
       var sceneEl = document.querySelector('a-scene');
