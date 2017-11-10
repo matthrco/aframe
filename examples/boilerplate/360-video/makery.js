@@ -5,6 +5,7 @@ var currentPortalName = "#makery1";
 var camera = null;
 var clicked;
 var activePortal = 0;
+var rotations = {"#makery1" : "0 180 0", "#makery2" : "0 70 0", "#makery3" : "0 270 0"};
 
 AFRAME.registerComponent('makery', {
   init: function () {
@@ -89,31 +90,24 @@ AFRAME.registerComponent('portal', {
     });
     element.addEventListener('click', function (event) {
       // Fade out image.
-      //data.target.emit('set-image-fade');
+      console.log(event);
+      var newVid = document.querySelector(data.src);
+      newVid.play();
       var sceneEl = document.querySelector('a-scene');
-      /**var els = sceneEl.querySelectorAll('[portal]');
-      for (var i = 0; i < els.length; i++) {
-        els[i].emit('set-image-fade');
-      }**/
-      // Wait for fade to complete.
-      //setTimeout(function () {
-        // Set image.
-        data.target.setAttribute('material', 'src: ');
-        document.querySelector(currentPortalName).pause();
-        var newVid = document.querySelector(data.src);
-        newVid.play();
-        currentPortalName = data.src;
-        data.target.setAttribute('material', 'src: '+data.src);
-        data.target.setAttribute('material', 'src', data.src);
-        data.target.setAttribute('position', data.position);
-        //portals[activePortal].classList.add("link");
-        portals[activePortal].setAttribute('visible', true);
-        activePortal = (data.src.substring(7)) - 1;
-        var secondCameraEl = document.querySelector("#camera");
-        secondCameraEl.setAttribute('position', data.position);
-        secondCameraEl.setAttribute('rotation', data.rotation);
-        goToPortal(activePortal);
-      //}, 300);
+      data.target.setAttribute('material', 'src: ');
+      data.target.setAttribute('rotation', rotations[data.src]);
+      document.querySelector(currentPortalName).pause();
+      currentPortalName = data.src;
+      data.target.setAttribute('material', 'src: '+data.src);
+      data.target.setAttribute('material', 'src', data.src);
+      data.target.setAttribute('position', data.position);
+      //portals[activePortal].classList.add("link");
+      portals[activePortal].setAttribute('visible', true);
+      activePortal = (data.src.substring(7)) - 1;
+      var secondCameraEl = document.querySelector("#camera");
+      secondCameraEl.setAttribute('position', data.position);
+      secondCameraEl.setAttribute('rotation', data.rotation);
+      goToPortal(activePortal);
     });
   }
 });
